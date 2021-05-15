@@ -1,8 +1,8 @@
 body {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+   background-image: url(../assets/getty_938993594_401542.jpg);
    
-   
-    color: rgb(1, 75, 18);
+    color: rgb(255, 255, 255);
 }
 
 .btn {
