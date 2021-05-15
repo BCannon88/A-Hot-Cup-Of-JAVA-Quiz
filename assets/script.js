@@ -1,25 +1,17 @@
 
-let timeEl = document.querySelector("p.time");
+let timeEl = document.querySelector("div.time");
 let secondsLeft = 75;
 let scoreEl = document.querySelector("#score");
-
-
 const introEl = document.querySelector("#intro");
-
-
 const questionsEl = document.querySelector("#questions");
 let questionEl = document.querySelector("#question");
 let questionCount = 0;
-const yaynayEl = document.querySelector("#yaynay");
-
+const checkEl = document.querySelector("#check");
 const finalEl = document.querySelector("#final");
 let initialsInput = document.querySelector("#initials");
-
 const highscoresEl = document.querySelector("#highscores");
 let scoreListEl = document.querySelector("#score-list");
 let scoreList = [];
-
-
 const startBtn = document.querySelector("#start");
 const ansBtn = document.querySelectorAll("button.ansBtn")
 const ans1Btn = document.querySelector("#answer1");
@@ -32,36 +24,36 @@ const clearScrBtn = document.querySelector("#clearscores");
 const viewScrBtn = document.querySelector("#view-scores");
 
 const questions = [ 
+   // correct answer numbers will start at 0 and go to 3
     {
-        // question 0
-        question: "Commonly used data types do NOT include:",
-        answers: ["1. strings", "2. booleans", "3. alerts", "4. numbers"],
-        correctAnswer: "2"
-    },
-    {
-        // question 1
-        question: "The condition in an if / else statement is enclosed within ____.",
-        answers: ["1. quotes", "2. curly brackets", "3. parentheses", "4. square brackets"],
+        question: "What is the outer most scope called?",
+        answers: [" Lexical Scope", " Global Scope", " Functional Scope", " Scope Chain"],
         correctAnswer: "1"
     },
     {
-        // question 2
-        question: "Arrays in Javascript can be used to store ____.",
-        answers: ["1. numbers and strings", "2. other arrays", "3. booleans", "4. all of the above"],
-        correctAnswer: "3"
-    },
-    {
-        // question 3
-        question: "String values must be enclosed within ____ when being assigned to variables.",
-        answers: ["1. commmas", "2. curly brackets", "3. quotes", "4. parentheses"],
+        
+        question: "Commonly used data types do NOT include:",
+        answers: [" strings", " alerts", " booleans", " numbers"],
         correctAnswer: "2"
     },
     {
-        // question 4
-        question: "A very useful tool used during development and debugging for printing content to the debugger is:",
-        answers: ["1. Javascript", "2. terminal/bash", "3. for loops", "4. console.log"],
+       
+        question: "The condition in an if / else statement is enclosed within ____.",
+        answers: [" quotes", " curly brackets", " parentheses", " square brackets"],
+        correctAnswer: "1"
+    },
+    {
+      
+        question: "What are reserved-words that perform action on values and variables?",
+        answers: [" Statement", " Expression", " Method", " Operator"],
         correctAnswer: "3"
-    }
+    },
+    {
+        question: "String values must be enclosed within ____ when being assigned to variables.",
+        answers: [" commmas", " curly brackets", " quotes", " parentheses"],
+        correctAnswer: "2"
+    },
+    
 ];
 
 
@@ -104,9 +96,9 @@ function setQuestion(id) {
 function checkAnswer(event) {
     event.preventDefault();
 
-    yaynayEl.style.display = "block";
+    checkEl.style.display = "block";
     let p = document.createElement("p");
-    yaynayEl.appendChild(p);
+    checkEl.appendChild(p);
 
     setTimeout(function () {
         p.style.display = 'none';
