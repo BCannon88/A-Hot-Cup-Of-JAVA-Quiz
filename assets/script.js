@@ -1,49 +1,48 @@
-
+const introEl = document.querySelector("#java-home-page");
+let initialsInput = document.querySelector("#initials");
 let timeEl = document.querySelector("div.time");
 let secondsLeft = 75;
 let scoreEl = document.querySelector("#score");
-const introEl = document.querySelector("#intro");
 const questionsEl = document.querySelector("#questions");
 let questionEl = document.querySelector("#question");
 let questionCount = 0;
-const checkEl = document.querySelector("#check");
-const finalEl = document.querySelector("#final");
-let initialsInput = document.querySelector("#initials");
-const highscoresEl = document.querySelector("#highscores");
 let scoreListEl = document.querySelector("#score-list");
 let scoreList = [];
 const startBtn = document.querySelector("#start");
-const ansBtn = document.querySelectorAll("button.ansBtn")
-const ans1Btn = document.querySelector("#answer1");
-const ans2Btn = document.querySelector("#answer2");
-const ans3Btn = document.querySelector("#answer3");
-const ans4Btn = document.querySelector("#answer4");
+const viewScrBtn = document.querySelector("#view-hot-java-scores");
 const submitScrBtn = document.querySelector("#submit-score");
-const goBackBtn = document.querySelector("#goback");
 const clearScrBtn = document.querySelector("#clearscores");
-const viewScrBtn = document.querySelector("#view-scores");
+const answerBtn = document.querySelectorAll("button.answerBtn")
+const answer1Btn = document.querySelector("#option1");
+const answer2Btn = document.querySelector("#option2");
+const answer3Btn = document.querySelector("#option3");
+const answer4Btn = document.querySelector("#option4");
+const goBackBtn = document.querySelector("#goback");
+const checkEl = document.querySelector("#check");
+const finalEl = document.querySelector("#final");
+const highscoresEl = document.querySelector("#highscores");
 
-const questions = [ 
-   // correct answer numbers will start at 0 and go to 3
+const questions = [
+    //  answer option numbers will start at 0 and go to 3
     {
         question: "What is the outer most scope called?",
         answers: [" Lexical Scope", " Global Scope", " Functional Scope", " Scope Chain"],
         correctAnswer: "1"
     },
     {
-        
+
         question: "How do you find the minimum of x and y using JavaScript?",
         answers: [" min(x,y);", " Math.min(x,y)", "  Math.min(xy)", " min(xy);"],
         correctAnswer: "1"
     },
     {
-       
+
         question: "Which of the following will write the message “Hello DataFlair!” in an alert box?",
         answers: ["  alertBox(“Hello DataFlair!”);", "  alert(Hello DataFlair!);", " msgAlert(“Hello DataFlair!”);", " alert(“Hello DataFlair!”);"],
         correctAnswer: "3"
     },
     {
-      
+
         question: "What are reserved-words that perform action on values and variables?",
         answers: [" Statement", " Expression", " Method", " Operator"],
         correctAnswer: "3"
@@ -53,7 +52,7 @@ const questions = [
         answers: [" Client", " Server", " Both", " None"],
         correctAnswer: "2"
     },
-    
+
 ];
 
 
@@ -86,10 +85,10 @@ function startQuiz() {
 function setQuestion(id) {
     if (id < questions.length) {
         questionEl.textContent = questions[id].question;
-        ans1Btn.textContent = questions[id].answers[0];
-        ans2Btn.textContent = questions[id].answers[1];
-        ans3Btn.textContent = questions[id].answers[2];
-        ans4Btn.textContent = questions[id].answers[3];
+        answer1Btn.textContent = questions[id].answers[0];
+        answer2Btn.textContent = questions[id].answers[1];
+        answer3Btn.textContent = questions[id].answers[2];
+        answer4Btn.textContent = questions[id].answers[3];
     }
 }
 
@@ -126,15 +125,15 @@ function addScore(event) {
     let init = initialsInput.value.toUpperCase();
     scoreList.push({ initials: init, score: secondsLeft });
 
-    scoreList = scoreList.sort((a, b) => {
-        if (a.score < b.score) {
-          return 1;
+    scoreList = scoreList.sort((x, y) => {
+        if (x.score < y.score) {
+            return 1;
         } else {
-          return -1;
+            return -1;
         }
-      });
-    
-    scoreListEl.innerHTML="";
+    });
+
+    scoreListEl.innerHTML = "";
     for (let i = 0; i < scoreList.length; i++) {
         let li = document.createElement("li");
         li.textContent = `${scoreList[i].initials}: ${scoreList[i].score}`;
@@ -150,7 +149,7 @@ function storeScores() {
 }
 
 function displayScores() {
-   
+
     let storedScoreList = JSON.parse(localStorage.getItem("scoreList"));
 
     if (storedScoreList !== null) {
@@ -160,13 +159,13 @@ function displayScores() {
 
 function clearScores() {
     localStorage.clear();
-    scoreListEl.innerHTML="";
+    scoreListEl.innerHTML = "";
 }
 
 
 startBtn.addEventListener("click", startQuiz);
 
-ansBtn.forEach(item => {
+answerBtn.forEach(item => {
     item.addEventListener('click', checkAnswer);
 });
 
@@ -187,6 +186,6 @@ viewScrBtn.addEventListener("click", function () {
     } else if (highscoresEl.style.display === "block") {
         highscoresEl.style.display = "none";
     } else {
-        return alert("No scores to show.");
+        return alert("No HighScores.");
     }
 });
