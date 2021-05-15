@@ -32,15 +32,15 @@ const questions = [
     },
     {
         
-        question: "Commonly used data types do NOT include:",
-        answers: [" strings", " alerts", " booleans", " numbers"],
-        correctAnswer: "2"
+        question: "How do you find the minimum of x and y using JavaScript?",
+        answers: [" min(x,y);", " Math.min(x,y)", "  Math.min(xy)", " min(xy);"],
+        correctAnswer: "1"
     },
     {
        
-        question: "The condition in an if / else statement is enclosed within ____.",
-        answers: [" quotes", " curly brackets", " parentheses", " square brackets"],
-        correctAnswer: "1"
+        question: "Which of the following will write the message “Hello DataFlair!” in an alert box?",
+        answers: ["  alertBox(“Hello DataFlair!”);", "  alert(Hello DataFlair!);", " msgAlert(“Hello DataFlair!”);", " alert(“Hello DataFlair!”);"],
+        correctAnswer: "3"
     },
     {
       
@@ -49,8 +49,8 @@ const questions = [
         correctAnswer: "3"
     },
     {
-        question: "String values must be enclosed within ____ when being assigned to variables.",
-        answers: [" commmas", " curly brackets", " quotes", " parentheses"],
+        question: "JavaScript is a ____ -side programming language.",
+        answers: [" Client", " Server", " Both", " None"],
         correctAnswer: "2"
     },
     
